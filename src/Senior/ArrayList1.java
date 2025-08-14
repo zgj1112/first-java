@@ -5,15 +5,15 @@ import java.util.Collections; //用于排序
 
 public class ArrayList1 {
     public static void main(String[] args) {
-        ArrayList<String> sites = new ArrayList<String>();
+        ArrayList<String> sites = new ArrayList<>();
         sites.add("Google");
         sites.add("Runoob");
-        sites.add("Taobao");
+//        sites.add("Taobao");
         sites.add("Weibo");
 
         System.out.println(sites.get(1));  // 访问第二个元素
         sites.set(2, "Wiki"); // 第一个参数为索引位置，第二个为要修改的值 增加
-        sites.remove(3); // 删除第四个元素
+        sites.remove(1); // 删除第四个元素
         System.out.println(sites.size());//元素数量
         System.out.println(sites); //打印全部
         Collections.sort(sites);//排序
@@ -22,7 +22,38 @@ public class ArrayList1 {
         for (String site : sites) {
             System.out.println(site);
         }
+        arrayTest();
     }
+
+//    对比array和arraylist
+    public static void arrayTest() {
+        //数组
+        int[] numbers = new int[5]; // 初始化一个长度为5的数组
+        numbers[0] = 1;
+        numbers[1] = 2;
+        System.out.println(numbers[0]); // 输出: 1
+
+        //二维数组
+        int[][] matrix = new int[2][3];
+        // 也可以这样初始化：
+        int[][] scores = {
+                {90, 85, 80},
+                {75, 88, 92}
+        };
+        for (int[] score : scores) {          // 行数
+            for (int i : score) {   // 每一行的列数
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+
+
+        ArrayList<Integer> list = new ArrayList<>(); // 初始化一个空的ArrayList
+        list.add(1); // 添加元素
+        list.add(2);
+        System.out.println(list.getFirst()); // 输出: 1
+    }
+
 }
 
 // add()	将元素插入到指定位置的 arraylist 中

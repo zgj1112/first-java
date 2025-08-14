@@ -3,6 +3,7 @@ package Senior;
 import java.util.HashSet;
 // 引入 HashMap 类
 import java.util.HashMap;
+import java.util.Map;
 
 public class Hash3 {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Hash3 {
         // HashSet 是无序的，即不会记录插入的顺序。
         // HashSet 不是线程安全的， 如果多个线程尝试同时修改 HashSet，则最终结果是不确定的。 您必须在多线程访问时显式同步对 HashSet 的并发访问。
         // HashSet 实现了 Set 接口。
-        HashSet<String> HashSetVal = new HashSet<String>();
+        HashSet<String> HashSetVal = new HashSet<>();
         HashSetVal.add("Google");
         HashSetVal.add("Runoob");
         // HashSetVal.add("Runoob");  // 重复的元素不会被添加
@@ -22,7 +23,7 @@ public class Hash3 {
         // HashMap 实现了 Map 接口，根据键的 HashCode 值存储数据，具有很快的访问速度，最多允许一条记录的键为 null，不支持线程同步。
         // HashMap 是无序的，即不会记录插入的顺序。
         // HashMap 继承于AbstractMap，实现了 Map、Cloneable、java.io.Serializable 接口。
-        HashMap<Integer, String> HashMapVal = new HashMap<Integer, String>();
+        HashMap<Integer, String> HashMapVal = new HashMap<>();
         // 添加键值对
         HashMapVal.put(1, "Google");
         HashMapVal.put(2, "Runoob");
@@ -34,6 +35,11 @@ public class Hash3 {
             System.out.print(value + ", ");
         }
 
+        System.out.println("test");
+        Hash3 test = new Hash3();
+        test.CustomLoadFactor();
+
+//        CustomLoadFactor.main( null);
         // clear()	删除 hashMap 中的所有键/值对
         // clone()	复制一份 hashMap
         // isEmpty()	判断 hashMap 是否为空
@@ -56,6 +62,23 @@ public class Hash3 {
         // compute()	对 hashMap 中指定 key 的值进行重新计算
         // computeIfAbsent()	对 hashMap 中指定 key 的值进行重新计算，如果不存在这个 key，则添加到 hashMap 中
         // computeIfPresent()	对 hashMap 中指定 key 的值进行重新计算，前提是该 key 存在于 hashMap 中。
+    }
 
+    //负载因子
+    public void CustomLoadFactor() {
+        // 创建一个 HashMap：初始容量为 16，负载因子为 0.5（比默认的 0.75 更保守） 第8个开始扩容
+        Map<String, String> map = new HashMap<>(16, 0.5f);
+
+        // 添加数据
+        map.put("apple", "苹果");
+        map.put("banana", "香蕉");
+        map.put("orange", "橘子");
+
+        // 遍历输出
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " => " + entry.getValue());
+        }
+
+        System.out.println("当前元素个数: " + map.size());
     }
 }
