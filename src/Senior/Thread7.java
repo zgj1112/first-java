@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 // import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
-// Thread和runnable不会返回结果 因为内置的run方法前面固定为void callabel会返回一个数据 可以等待结果
+// Thread和runnable不会返回结果 因为内置的run方法前面固定为void Callable会返回一个数据 可以等待结果
 public class Thread7 {
     public static void main(String[] args) {
         MyThread t1 = new MyThread(); // 创建实现方式一
