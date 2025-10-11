@@ -34,8 +34,42 @@ public class TestJDBC {
         } catch (Exception e) {
             // e.printStackTrace();
         }
-
         return list;
+    }
+
+    public void getUser() throws ClassNotFoundException, SQLException {
+        // 1️⃣ 加载驱动
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        // 2️⃣ 建立连接
+        String url = "jdbc:mysql://localhost:3306/testdb01?useSSL=false&serverTimezone=UTC";
+        String usersql = "root";
+        String password = "123456";
+        Connection conn = DriverManager.getConnection(url, usersql, password);
+
+        //---两种方式---
+        // Statement st = conn.createStatement();
+        // ResultSet rs = st.executeQuery("select * from user01 where id = 1");
+
+        //--预编译形式--
+        PreparedStatement st = conn.prepareStatement("select * from user01 where id = ?");
+        st.setString(1, "1");
+        ResultSet rs = st.executeQuery();
+
+        while (rs.next()) {
+            // int id = rs.getInt("id");
+            // String username = rs.getString("username");
+            // String age = rs.getString("age");
+            // String gender = rs.getString("gender");
+            // System.out.println(id + " - " + username + " - " + age + " - " + gender);
+
+            TestJdbcX User = new TestJdbcX();
+            User.setId(rs.getInt("id"));
+            User.setUsername(rs.getString("username"));
+            User.setAge(rs.getString("age"));
+            User.setGender(rs.getString("gender"));
+            System.out.println(User);
+            // System.out.println(User.id + " - " + User.username + " - " + User.age + " - " + User.gender);
+        }
     }
 }
 
