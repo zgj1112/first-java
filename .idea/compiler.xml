@@ -10,12 +10,26 @@
         <module name="first-java-maven" />
         <module name="first-springboot" />
       </profile>
+      <profile name="Annotation profile for mybatis-first" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../../../Program Files/Maven/apache-maven-3.9.11/mvn_repo/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+        </processorPath>
+        <module name="mybatis-first" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="23" />
+    <bytecodeTargetLevel target="23">
+      <module name="mybatis-demo" target="17" />
+      <module name="mybatis-test" target="1.8" />
+      <module name="mybatis-test1" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="first-springboot" options="-parameters" />
+      <module name="mybatis-first" options="-parameters" />
     </option>
   </component>
 </project>

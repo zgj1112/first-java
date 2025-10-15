@@ -6,7 +6,18 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/first-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-test/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-test1/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-first/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-test/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-test1/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="24" project-jdk-type="JavaSDK" />
