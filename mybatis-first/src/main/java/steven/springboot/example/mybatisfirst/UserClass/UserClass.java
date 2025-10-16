@@ -12,4 +12,12 @@ public class UserClass {
     private String username;
     private String password;
     private String name;
+    private String gender;
+    private String phone;
+    private String job;
+    private Double salary;
+    private String entry_date;
+    private String image;
+    private String create_time;
+    private String update_time;
 }
