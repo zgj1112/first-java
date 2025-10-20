@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import steven.springboot.example.mybatisfirst.UserClass.UserClass;
+import steven.springboot.example.mybatisfirst.UserQuery.TestXml;
 import steven.springboot.example.mybatisfirst.UserQuery.UserSql;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,8 @@ class MybatisFirstApplicationTests {
 
     @Autowired
     private UserSql userSql;
+    @Autowired
+    private TestXml testXml;
 
     @Disabled
     void testFindAll() {
@@ -37,15 +40,30 @@ class MybatisFirstApplicationTests {
         userSql.insert(userClass);
     }
 
-    @Test
+    @Disabled
     void testUpdate() {
         System.out.println("更新");
         String now = LocalDateTime.now().toString();
         userSql.update(new UserClass(2, "xx", "test", "test", "1", "1340816152", "2", 0.0, "2021-07-05T09:05:05.000", "test", now, now));
     }
 
-    void testQuery(){
+    @Disabled
+    void testQuery() {
         System.out.println("查询");
+        List<UserClass> list = userSql.queryUser("xxxx");
+        list.forEach(System.out::println);
+    }
 
+    @Disabled
+    void testQueryGroup() {
+        List<UserClass> list = userSql.queryGroup();
+        list.forEach(System.out::println);
+    }
+
+    @Test
+    void testXmlFindAll() {
+        System.out.println("测试");
+        List<UserClass> list = testXml.findAll();
+        list.forEach(System.out::println);
     }
 }
